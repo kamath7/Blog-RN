@@ -1,10 +1,11 @@
-import React from 'react'
+import React , {useContext} from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-
+import BlogContext from '../store/BlogContext'
 const IndexScreen = () => {
+    const ctx = useContext(BlogContext)
     return (
         <View>
-            <Text>My Index Screen</Text>
+            <Text>Value from Context : {ctx}</Text>
         </View>
     )
 }
