@@ -29,11 +29,16 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingVertical: 20,
+    paddingHorizontal: 10,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: "black",
   },
-  title:{
+  title: {
     fontSize: 18,
   },
-  icon:{
-    fontSize: 24
-  }
+  icon: {
+    fontSize: 24,
+  },
 });
