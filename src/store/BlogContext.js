@@ -3,7 +3,13 @@ import createDataContext from "./createDataContext";
 const blogReducer = (state, action) => {
   switch (action.type) {
     case "ADD_BLOG_POST":
-      return [...state, { title: `Blog post ${state.length + 1}` }];
+      return [
+        ...state,
+        {
+          id: Math.floor(Math.random() * 82718),
+          title: `Blog post ${state.length + 1}`,
+        },
+      ];
 
     default:
       return state;

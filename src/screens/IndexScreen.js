@@ -1,5 +1,12 @@
 import React, { useContext } from "react";
-import { StyleSheet, Text, View, FlatList, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Context } from "../store/BlogContext";
 const IndexScreen = () => {
@@ -13,7 +20,9 @@ const IndexScreen = () => {
           return (
             <View style={styles.row}>
               <Text style={styles.title}>{item.title}</Text>
-              <Feather name="trash" style={styles.icon} />
+              <TouchableOpacity onPress={()=>console.log(item.id)}>
+                <Feather name="trash" style={styles.icon} />
+              </TouchableOpacity>
             </View>
           );
         }}
@@ -32,7 +41,6 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 10,
     borderTopWidth: 1,
-    borderBottomWidth: 1,
     borderColor: "black",
   },
   title: {
