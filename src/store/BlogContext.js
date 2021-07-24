@@ -12,9 +12,16 @@ const blogReducer = (state, action) => {
 };
 
 export const BlogProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(blogReducer, []);
+  const [blogPosts, dispatch] = useReducer(blogReducer, []);
 
-  return <BlogContext.Provider value={{}}>{children}</BlogContext.Provider>;
+  const addBlogPost = () => {
+    dispatch({ type: "ADD_BLOG_POST" });
+  };
+  return (
+    <BlogContext.Provider value={{ blogPosts, addBlogPost }}>
+      {children}
+    </BlogContext.Provider>
+  );
 };
 
 export default BlogContext;
