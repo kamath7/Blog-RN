@@ -35,7 +35,6 @@ const IndexScreen = ({ navigation }) => {
           );
         }}
       />
-      <Button title="Add Blog" onPress={addBlogPost} />
     </View>
   );
 };
