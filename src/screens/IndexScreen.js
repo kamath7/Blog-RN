@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Context } from "../store/BlogContext";
-const IndexScreen = () => {
+const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost, deleteBlogPost } = useContext(Context);
   return (
     <View>
@@ -18,12 +18,14 @@ const IndexScreen = () => {
         keyExtractor={(blogPost) => blogPost}
         renderItem={({ item }) => {
           return (
-            <View style={styles.row}>
-              <Text style={styles.title}>{item.title}</Text>
-              <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
-                <Feather name="trash" style={styles.icon} />
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity onPress={()=> navigation.navigate('Show')}>
+              <View style={styles.row}>
+                <Text style={styles.title}>{item.title}</Text>
+                <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+                  <Feather name="trash" style={styles.icon} />
+                </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
           );
         }}
       />
