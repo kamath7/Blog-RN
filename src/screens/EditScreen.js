@@ -6,7 +6,12 @@ const EditScreen = ({ navigation }) => {
   const { state } = useContext(Context);
   const blogPost = state.find((blog) => blog.id === navigation.getParam("id"));
 
-  return <BlogForm />;
+  return (
+    <BlogForm
+      startVal={{ title: blogPost.title, content: blogPost.content }}
+      onSubmit={(title, content) => {}}
+    />
+  );
 };
 
 export default EditScreen;
