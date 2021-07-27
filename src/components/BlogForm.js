@@ -26,6 +26,12 @@ const BlogForm = ({ onSubmit, startVal }) => {
   );
 };
 
+BlogForm.defaultProps = {
+  startVal: {
+    title: '',
+    content:''
+  }
+}
 export default BlogForm;
 
 const styles = StyleSheet.create({
