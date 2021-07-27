@@ -3,13 +3,16 @@ import { StyleSheet } from "react-native";
 import { Context } from "../store/BlogContext";
 import BlogForm from "../components/BlogForm";
 const EditScreen = ({ navigation }) => {
-  const { state } = useContext(Context);
-  const blogPost = state.find((blog) => blog.id === navigation.getParam("id"));
+  const { state, editBlogPost } = useContext(Context);
+  const id = navigation.getParam("id");
+  const blogPost = state.find((blog) => blog.id === id);
 
   return (
     <BlogForm
       startVal={{ title: blogPost.title, content: blogPost.content }}
-      onSubmit={(title, content) => {}}
+      onSubmit={(title, content) => {
+        editBlogPost(id, title, content);
+      }}
     />
   );
 };
