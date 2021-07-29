@@ -14,6 +14,12 @@ const IndexScreen = ({ navigation }) => {
     useContext(Context);
   useEffect(() => {
     getBlogPosts();
+    const listener = navigation.addListener("didFocus", () => {
+      getBlogPosts();
+    }); //this is whenever Index screen is re-rendered after first use
+    return () => {
+      listener.remove();
+    };
   }, []);
   return (
     <View>
