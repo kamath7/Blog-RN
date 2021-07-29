@@ -10,7 +10,7 @@ import {
 import { Feather } from "@expo/vector-icons";
 import { Context } from "../store/BlogContext";
 const IndexScreen = ({ navigation }) => {
-  const { state, addBlogPost, deleteBlogPost } = useContext(Context);
+  const { state, addBlogPost, deleteBlogPost, getBlogPosts } = useContext(Context);
   return (
     <View>
       <FlatList
