@@ -58,5 +58,5 @@ const editBlogPost = (dispatch) => {
 export const { Context, Provider } = createDataContext(
   blogReducer,
   { addBlogPost, deleteBlogPost, editBlogPost, getBlogPosts },
-  [{ title: "Lalle", content: "More Lalle", id: 69 }]
+  []
 );
