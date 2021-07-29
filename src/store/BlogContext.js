@@ -36,22 +36,23 @@ const getBlogPosts = (dispatch) => {
 const addBlogPost = (dispatch) => {
   return async (title, content, callback) => {
     // dispatch({ type: "ADD_BLOG_POST", payload: { title, content } });
-  
-    await JsonServer.post('/blogPosts',{title, content})
-      if (callback) {
+
+    await JsonServer.post("/blogPosts", { title, content });
+    if (callback) {
       callback();
     }
   };
 };
 const deleteBlogPost = (dispatch) => {
   return async (id) => {
-    await JsonServer.delete(`/blogPosts/${id}`)
+    await JsonServer.delete(`/blogPosts/${id}`);
     dispatch({ type: "DELETE_BLOG_POST", payload: id });
   };
 };
 
 const editBlogPost = (dispatch) => {
-  return (id, title, content, callback) => {
+  return async (id, title, content, callback) => {
+    await JsonServer.put(`/blogPosts/${id}`, { title, content });
     dispatch({ type: "EDIT_BLOG_POST", payload: { id, title, content } });
     if (callback) {
       callback();
