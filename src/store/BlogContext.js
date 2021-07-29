@@ -2,15 +2,15 @@ import createDataContext from "./createDataContext";
 import JsonServer from "../api/JsonServer";
 const blogReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_BLOG_POST":
-      return [
-        ...state,
-        {
-          id: Math.floor(Math.random() * 82718),
-          title: action.payload.title,
-          content: action.payload.content,
-        },
-      ];
+    // case "ADD_BLOG_POST":
+    //   return [
+    //     ...state,
+    //     {
+    //       id: Math.floor(Math.random() * 82718),
+    //       title: action.payload.title,
+    //       content: action.payload.content,
+    //     },
+    //   ];
 
     case "DELETE_BLOG_POST":
       return state.filter((blog) => blog.id !== action.payload);
@@ -44,7 +44,8 @@ const addBlogPost = (dispatch) => {
   };
 };
 const deleteBlogPost = (dispatch) => {
-  return (id) => {
+  return async (id) => {
+    await JsonServer.delete(`/blogPosts/${id}`)
     dispatch({ type: "DELETE_BLOG_POST", payload: id });
   };
 };
