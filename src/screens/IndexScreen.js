@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -10,7 +10,11 @@ import {
 import { Feather } from "@expo/vector-icons";
 import { Context } from "../store/BlogContext";
 const IndexScreen = ({ navigation }) => {
-  const { state, addBlogPost, deleteBlogPost, getBlogPosts } = useContext(Context);
+  const { state, addBlogPost, deleteBlogPost, getBlogPosts } =
+    useContext(Context);
+  useEffect(() => {
+    getBlogPosts();
+  }, []);
   return (
     <View>
       <FlatList
